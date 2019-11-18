@@ -1,0 +1,6 @@
+{
+    "extends": "eslint-config-zemoso",
+    "rules": {
+        "linebreak-style": ["warn","unix"]
+    }
+}
