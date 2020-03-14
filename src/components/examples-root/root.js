@@ -8,10 +8,12 @@ import {
   import TodoAppTest from "../todoApp-test/todoApp";
   import TodoAppStable from "../todoApp/todoApp";
   import Clock from "../clock/clock";
-  import KefirTest from "../kefir-test/test";
   import GraphQLTest from "../graphqltest/apolloconnect";
   import ChartHigh from "../highcharts/test";
   import ChartsHighTS from "../highcharts/index.tsx";
+import Gridcount from '../gridcount';
+import GridcountAlt from '../gridcountAlt';
+import GridcountFlex from '../gridcountFlex';
   
   const Root = (props) => {
     return (
@@ -27,13 +29,19 @@ import {
                                         <Link to="/">Todo-test</Link>
                                     </li>
                                     <li>
+                                        <Link to="/gridcounter">Grid Counter</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/gridcounteralt">Grid Counter Alt</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/gridcounterflex">Grid Counter Flex</Link>
+                                    </li>
+                                    <li>
                                         <Link to="/todostable">Todo-stable</Link>
                                     </li>
                                     <li>
                                         <Link to="/clock">Clock</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/kefirtest">Kefir-test</Link>
                                     </li>
                                     <li>
                                         <Link to="/graphqltest">graphql-test</Link>
@@ -51,14 +59,20 @@ import {
                             {/* A <Switch> looks through its children <Route>s and
                              renders the first one that matches the current URL. */}
                             <Switch>
+                                <Route path="/gridcounter">
+                                    <Gridcount />
+                                </Route>
+                                <Route path="/gridcounteralt">
+                                    <GridcountAlt />
+                                </Route>
+                                <Route path="/gridcounterflex">
+                                    <GridcountFlex />
+                                </Route>
                                 <Route path="/todostable">
                                     <TodoAppStable />
                                 </Route>
                                 <Route path="/clock">
                                     <Clock name='Testing for event' />
-                                </Route>
-                                <Route path="/kefirtest">
-                                    <KefirTest />
                                 </Route>
                                 <Route path="/graphqltest">
                                     <GraphQLTest />
