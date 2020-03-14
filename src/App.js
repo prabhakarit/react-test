@@ -9,6 +9,7 @@ import Root from './components/examples-root/root';
 //import Welcome from './components/components-example/components-ex1';
 //import ComposedComponents from './components/components-example/components-ex2';
 //import Clock from './components/clock/clock';
+import GridCounter from './components/gridcountAlt';
 /**
  * Load components stop
  */
