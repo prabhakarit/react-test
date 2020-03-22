@@ -1,17 +1,5 @@
-import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core';
+import React from 'react';
 import Grid from './grid/';
-
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 650,
-    border: '2px'
-  },
-});
 
 const Gridstate = (props) => {
 
@@ -31,13 +19,10 @@ const Gridstate = (props) => {
   const [data,setData] = React.useState(initData());
   
   const setRowColIncrement = (row, col) => {
-    console.log('called with ','row ',row,' col ',col);
-    console.log('data before update => ' + data);
     const localArray = data;
     localArray[row][col] = localArray[row][col] + 1;
     setData(localArray);
     setCountComponent(<Grid rows={props.rows} cols={props.cols} data={data} type={'counter'} />);
-    console.log('data after update => ' + data);
   }
 
   const [countComponent,setCountComponent] = React.useState(<Grid rows={props.rows} cols={props.cols} data={data} type={'counter'} />);
