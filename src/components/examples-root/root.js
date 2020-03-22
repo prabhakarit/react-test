@@ -14,7 +14,8 @@ import {
 import Gridcount from '../gridcount';
 import GridcountAlt from '../gridcountAlt';
 import GridcountFlex from '../gridcountFlex';
-  
+import GridcountComp from '../gridcountComp';  
+
   const Root = (props) => {
     return (
       <Router>
@@ -36,6 +37,9 @@ import GridcountFlex from '../gridcountFlex';
                                     </li>
                                     <li>
                                         <Link to="/gridcounterflex">Grid Counter Flex</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/gridcountercomp">Grid Counter Comp</Link>
                                     </li>
                                     <li>
                                         <Link to="/todostable">Todo-stable</Link>
@@ -67,6 +71,9 @@ import GridcountFlex from '../gridcountFlex';
                                 </Route>
                                 <Route path="/gridcounterflex">
                                     <GridcountFlex />
+                                </Route>
+                                <Route path="/gridcountercomp">
+                                    <GridcountComp rows={3} cols={3} />
                                 </Route>
                                 <Route path="/todostable">
                                     <TodoAppStable />
