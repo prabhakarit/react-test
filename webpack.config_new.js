@@ -10,7 +10,7 @@ module.exports = () => {
 
   return {
     //entry: "./src/index.tsx",
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     resolve: {
       extensions: [".ts", ".tsx", ".js"]
     },

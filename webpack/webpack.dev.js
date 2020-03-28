@@ -1,39 +1,29 @@
 const webpack = require("webpack");
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyser = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const commonPaths = require("./paths");
-
-module.exports = {
-  mode: "development",
-  devtool: "inline-source-map",
-  output: {
-    filename: "[name].js",
-    path: commonPaths.outputPath,
-    chunkFilename: "[name].js"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(css)$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              modules: true,
-              camelCase: true,
-              localIdentName: "[local]___[hash:base64:5]"
-            }
-          },
-          "sass-loader"
-        ]
-      }
+module.exports = () => {
+  return merge(common,{
+    mode: "development",
+    devtool: "inline-source-map",
+    devServer: {
+      port: 8080,
+      historyApiFallback: true,
+      overlay: true,
+      open: true,
+      stats: 'errors-only'
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+      }),
+      new BundleAnalyser(),
+      new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env)
+      })
     ]
-  },
-  devServer: {
-    contentBase: commonPaths.outputPath,
-    compress: true,
-    hot: true
-  },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  });
+  
 };

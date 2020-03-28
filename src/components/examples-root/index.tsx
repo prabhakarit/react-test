@@ -9,27 +9,28 @@ import {
   import TodoAppStable from "../todoApp/todoApp";
   import Clock from "../clock/clock";
   import GraphQLTest from "../graphqltest/apolloconnect";
-  import ChartHigh from "../highcharts/test";
-  import ChartsHighTS from "../highcharts/index.tsx";
+//   import ChartHigh from "../highcharts/test";
+  //import ChartsHighTS from "../highcharts/";
 import Gridcount from '../gridcount';
 import GridcountAlt from '../gridcountAlt';
 import GridcountFlex from '../gridcountFlex';
-import GridcountComp from '../gridcountComp';  
+import GridcountComp from '../gridcountComp'; 
+import GridcountComp2 from '../gridcountComp2';  
 
-  const Root = (props) => {
+  const Root = () => {
     return (
       <Router>
         <div>
-            <table width="100%">
+            <table style={{width:'100%'}}>
                 <tbody>
                     <tr>
-                        <td width="10%" valign="top">
+                        <td  style={{width:'100%'}}>
                             <nav>
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         <Link to="/">Todo-test</Link>
-                                    </li>
-                                    <li>
+                                    </li> */}
+                                    {/* <li>
                                         <Link to="/gridcounter">Grid Counter</Link>
                                     </li>
                                     <li>
@@ -40,8 +41,11 @@ import GridcountComp from '../gridcountComp';
                                     </li>
                                     <li>
                                         <Link to="/gridcountercomp">Grid Counter Comp</Link>
-                                    </li>
-                                    <li>
+                                    </li> */}
+                                    {/* <li>
+                                        <Link to="/gridcountercomp2">Grid Counter Comp 2</Link>
+                                    </li> */}
+                                    {/* <li>
                                         <Link to="/todostable">Todo-stable</Link>
                                     </li>
                                     <li>
@@ -49,13 +53,13 @@ import GridcountComp from '../gridcountComp';
                                     </li>
                                     <li>
                                         <Link to="/graphqltest">graphql-test</Link>
-                                    </li>
-                                    <li>
+                                    </li> */}
+                                    {/* <li>
                                         <Link to="/highcharts">highcharts-test</Link>
                                     </li>
                                     <li>
                                         <Link to="/highchartsts">highcharts-ts-test</Link>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </nav>
                         </td>
@@ -63,7 +67,7 @@ import GridcountComp from '../gridcountComp';
                             {/* A <Switch> looks through its children <Route>s and
                              renders the first one that matches the current URL. */}
                             <Switch>
-                                <Route path="/gridcounter">
+                                {/* <Route path="/gridcounter">
                                     <Gridcount />
                                 </Route>
                                 <Route path="/gridcounteralt">
@@ -73,9 +77,12 @@ import GridcountComp from '../gridcountComp';
                                     <GridcountFlex />
                                 </Route>
                                 <Route path="/gridcountercomp">
-                                    <GridcountComp rows={3} cols={3} />
-                                </Route>
-                                <Route path="/todostable">
+                                    <GridcountComp rows={3} columns={3} />
+                                </Route> */}
+                                {/* <Route path="/gridcountercomp2">
+                                    <GridcountComp2 rows={3} columns={3} />
+                                </Route> */}
+                                {/* <Route path="/todostable">
                                     <TodoAppStable />
                                 </Route>
                                 <Route path="/clock">
@@ -83,16 +90,16 @@ import GridcountComp from '../gridcountComp';
                                 </Route>
                                 <Route path="/graphqltest">
                                     <GraphQLTest />
-                                </Route>
-                                <Route path="/highcharts">
+                                </Route> */}
+                                {/* <Route path="/highcharts">
                                     <ChartHigh />
                                 </Route>
                                 <Route path="/highchartsts">
                                     <ChartsHighTS />
-                                </Route>
-                                <Route path="/">
+                                </Route> */}
+                                {/* <Route path="/">
                                     <TodoAppTest />
-                                </Route>
+                                </Route> */}
                             </Switch>
                         </td>
                     </tr>
