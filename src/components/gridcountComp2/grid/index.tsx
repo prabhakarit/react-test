@@ -9,10 +9,6 @@ import Paper from '@material-ui/core/Paper';
 import TableContainer from '@material-ui/core/TableContainer';
 
 const useStyles = makeStyles({
-    root: {
-      width: '100%',
-      overflowX: 'auto',
-    },
     table: {
       minWidth: 650,
       border: '2px'
@@ -26,27 +22,27 @@ const useStyles = makeStyles({
     rows:number;
     columns:number;
     heading:string;
-    tagcallback?:any;
-    contentcallback?:any;
+    cellCallback:any;
+    cellData:any;
   }
 
-  const Grid: React.FC<IGrid> = ({rows, columns, heading, tagcallback, contentcallback}) => {
+  const Grid: React.FC<IGrid> = ({rows, columns, heading, cellCallback, cellData}) => {
     const classes = useStyles();
 
     const generateTable = () => {
-        const tableArray = new Array();
+        const tableRows = new Array();
         [...Array(rows).keys()].forEach((row)=>{
-            tableArray.push(
+            tableRows.push(
                             <TableRow>
                                 {[...Array(columns).keys()].map((col)=>{
                                     return(
-                                        <TableCell onClick={()=>{(tagcallback)?tagcallback(row,col):''}}>{contentcallback(row,col)}</TableCell>
+                                        <TableCell className={classes.cell} onClick={()=>{cellCallback(row,col)}}>{cellData[row][col]}</TableCell>
                                     );
                                 })}
                             </TableRow>
                         );
           });
-        return tableArray;
+        return tableRows;
     }
 
     return(
@@ -60,8 +56,8 @@ const useStyles = makeStyles({
               </TableHead>
               <TableBody>
                 {
-                    generateTable().map((tablePart)=>{
-                        return (tablePart);
+                    generateTable().map((tableRow)=>{
+                        return (tableRow);
                     })
                 }
               </TableBody>

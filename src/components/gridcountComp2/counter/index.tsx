@@ -4,13 +4,14 @@ import Grid from '../grid';
 interface IGridCounter{
     rows:number;
     columns:number;
-    counter?:any;
+    doCount?:any;
+    cellData:any;
   }
 
-  const GridCounter: React.FC<IGridCounter> = ({rows, columns, counter}) => {
+  const GridCounter: React.FC<IGridCounter> = ({rows, columns, doCount=()=>{}, cellData}) => {
     return (
         <React.Fragment>
-            <Grid heading={'Counter'} rows={rows} columns={columns} contentcallback={counter} />
+            <Grid heading={'Counter'} rows={rows} columns={columns} cellCallback={doCount} cellData={cellData} />
         </React.Fragment>
     );
   };
