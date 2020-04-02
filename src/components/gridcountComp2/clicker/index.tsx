@@ -4,16 +4,14 @@ import Grid from '../grid';
 interface IGridClicker{
     rows:number;
     columns:number;
-    captureCount:any;
+    doCount:any;
+    cellData:any;
   }
 
-  const GridClicker: React.FC<IGridClicker> = ({rows, columns, captureCount}) => {
-    const contentShow = (row:number, column:number) => {
-        return `CELL${row}${column}`;
-    }
+  const GridClicker: React.FC<IGridClicker> = ({rows, columns, doCount, cellData}) => {
     return (
         <React.Fragment>
-            <Grid heading={'Clicker'} rows={rows} columns={columns} tagcallback={captureCount} contentcallback={contentShow} />
+            <Grid heading={'Clicker'} rows={rows} columns={columns} cellCallback={doCount} cellData={cellData} />
         </React.Fragment>
     );
   };

@@ -8,8 +8,8 @@ const App: React.FC = () => {
   return (
     <React.StrictMode>
       <CssBaseline>
-        <ThemeProvider theme={theme}>\
-          <GridcountComp2 rows={3} columns={3} />
+        <ThemeProvider theme={theme}>
+          <GridcountComp2 rows={5} columns={4} />
         </ThemeProvider>
       </CssBaseline>
     </React.StrictMode>

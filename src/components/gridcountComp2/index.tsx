@@ -1,7 +1,7 @@
 import React from 'react';
 import GridClicker from './clicker';
 import GridCounter from './counter';
-import { useData } from './hooks';
+import { useCounter } from './hooks';
 
 interface IGridMaster{
   rows:number;
@@ -9,13 +9,13 @@ interface IGridMaster{
 }
 
 const Gridstate: React.FC<IGridMaster> = ({rows,columns}) => {
-  const {doCount, getDataByIndex} = useData(rows,columns);
+  const {doCount, counterData, clickerData} = useCounter(rows,columns);
     return (
         <React.Fragment>
           <h1>Grid count comp</h1>
-          <GridClicker rows={rows} columns={columns} captureCount={doCount}  />
+          <GridClicker rows={rows} columns={columns} doCount={doCount} cellData={clickerData}  />
           <br/><br/>
-          <GridCounter rows={rows} columns={columns} counter={getDataByIndex} />
+          <GridCounter rows={rows} columns={columns} cellData={counterData} />
         </React.Fragment>
     );
 };
