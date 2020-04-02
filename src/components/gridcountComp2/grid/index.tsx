@@ -29,19 +29,25 @@ const useStyles = makeStyles({
   const Grid: React.FC<IGrid> = ({rows, columns, heading, cellCallback, cellData}) => {
     const classes = useStyles();
 
-    const generateTable = () => {
+    const generateCell = (row:number) => {
+      const tableCols = new Array();
+      for(let col = 0; col<columns; col++ ){
+        tableCols.push(<TableCell className={classes.cell} onClick={()=>{cellCallback(row,col)}}>{cellData[row][col]}</TableCell>);
+      }
+      return tableCols;
+    }
+
+    const generateRow = () => {
         const tableRows = new Array();
-        [...Array(rows).keys()].forEach((row)=>{
-            tableRows.push(
-                            <TableRow>
-                                {[...Array(columns).keys()].map((col)=>{
-                                    return(
-                                        <TableCell className={classes.cell} onClick={()=>{cellCallback(row,col)}}>{cellData[row][col]}</TableCell>
-                                    );
-                                })}
-                            </TableRow>
-                        );
-          });
+        for(let row = 0; row<rows; row++ ){
+          tableRows.push(
+            <TableRow>
+                {generateCell(row).map((tableCol)=>{
+                  return tableCol;
+                })}
+            </TableRow>
+          );
+        }
         return tableRows;
     }
 
@@ -56,8 +62,8 @@ const useStyles = makeStyles({
               </TableHead>
               <TableBody>
                 {
-                    generateTable().map((tableRow)=>{
-                        return (tableRow);
+                    generateRow().map((tableRow)=>{
+                        return tableRow;
                     })
                 }
               </TableBody>
